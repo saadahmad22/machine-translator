@@ -21,3 +21,5 @@ Install Python packages (optionally inside a virtual environment)
 `pip install -r requirements.txt`
 
 ## Running
+
+Use the `LangChainApp` from `langchain_app.py`

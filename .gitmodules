@@ -1,0 +1,3 @@
+[submodule "cc100"]
+	path = cc100
+	url = https://huggingface.co/datasets/statmt/cc100

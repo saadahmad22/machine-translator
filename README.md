@@ -2,6 +2,13 @@
 
 Machine Translator for multiple languages using LangChain
 
+Supported Languages:
+
+- English
+- Spanish
+- Italian
+- French
+
 ## Setup
 
 Developed with

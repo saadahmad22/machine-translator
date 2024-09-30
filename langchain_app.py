@@ -36,6 +36,15 @@ class LangChainApp:
             )
         )
 
+    @staticmethod
+    def preprocess_audio(audio_path: str):
+        '''Preprocess the audio file and return the audio tensor.'''
+
+        audio, sample_rate = sf.read(audio_path)
+        if sample_rate != 16000:
+            audio = librosa.resample(audio, orig_sr=sample_rate, target_sr=16000, res_type='linear')
+        return audio
+    
     def process_audio_file(self, audio_path: str):
         '''Process the audio file and return the translated text.'''
 

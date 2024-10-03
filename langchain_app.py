@@ -7,7 +7,7 @@ import soundfile as sf  # to load audio files
 class LangChainApp:
     '''A class to process an audio file containing Spanish speech to English text.'''
 
-    def __init__(self, lang1: str = "es", lang2: str = "en", speech_to_text_model: str = "openai/whisper-base", translation_model: str=None, speech_kwargs: dict=None, translation_model_kwargs: dict=None) -> None:
+    def __init__(self, lang1: str = "en", lang2: str = "es", speech_to_text_model: str = "openai/whisper-base", translation_model: str=None, speech_kwargs: dict=None, translation_model_kwargs: dict=None) -> None:
         '''Initialize the LangChainApp with the specified speech-to-text and translation models.'''
 
         self.lang1 = lang1
@@ -66,13 +66,18 @@ class LangChainApp:
         translation = self.pipe_translation.invoke(transcription)
 
         return (transcription, translation)
+    
+    def translate_text(self, text: str):
+        '''Translate the given text from Spanish to English.'''
+
+        return self.pipe_translation.invoke(text)
 
 
 # Example usage
-# app = LangChainApp()
+app = LangChainApp()
 
 # # Replace with the actual path to your audio file (WAV format or supported)
 # audio_file_path = "days-of-week.mp3"
-# translation = app.process_audio_file(audio_file_path)
+translation = app.translate_text("Hello, how is it going?")
 
-# print("Translated text:", translation)
+print("Translated text:", translation)
